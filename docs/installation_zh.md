@@ -4,7 +4,7 @@
 
 ## 系统要求
 
-- **操作系统**: Ubuntu 22.04 LTS (推荐)
+- **操作系统**: Ubuntu 22.04 LTS 或 Debian 12 (推荐)
 - **架构**: x86_64或ARM64
 - **内存**: 最低8GB (推荐16GB)
 - **存储**: 最低60GB可用空间 (推荐SSD)
@@ -37,7 +37,7 @@ curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9_node/main/scripts/in
 ### 脚本功能详解
 
 1. **系统检查**
-   - 验证Ubuntu 22.04
+   - 验证Ubuntu 22.04 或 Debian 12
    - 检查架构 (x86_64/ARM64)
    - 确保有60GB+可用磁盘空间
    - 配置交换文件

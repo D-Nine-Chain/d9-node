@@ -6,7 +6,7 @@ This guide covers multiple installation methods for the D9 node, from quick auto
 
 ## System Requirements
 
-- **Operating System**: Ubuntu 22.04 LTS (recommended)
+- **Operating System**: Ubuntu 22.04 LTS or Debian 12 (recommended)
 - **Architecture**: x86_64 or ARM64
 - **RAM**: Minimum 8GB (16GB recommended)
 - **Storage**: Minimum 60GB free space (SSD recommended)
@@ -39,7 +39,7 @@ You'll be prompted to choose your language at the start.
 ### What the Script Does
 
 1. **System Checks**
-   - Verifies Ubuntu 22.04
+   - Verifies Ubuntu 22.04 or Debian 12
    - Checks architecture (x86_64/ARM64)
    - Ensures 60GB+ free disk space
    - Configures swap file

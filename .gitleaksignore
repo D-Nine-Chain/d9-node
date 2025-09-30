@@ -1,0 +1,6 @@
+# Ignore example seeds in documentation/scripts (not real secrets)
+scripts/build-node.sh:generic-api-key:82
+scripts/install-d9-node.sh:generic-api-key:89
+
+# Ignore test/example data
+burn-staking-spec.json:generic-api-key:57

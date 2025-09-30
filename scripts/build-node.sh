@@ -113,10 +113,14 @@ echo ""
 echo -e "${YELLOW}$MSG_CHECKING_SYSTEM${NC}"
 echo ""
 
-# Check Ubuntu 22
+# Check OS compatibility (Ubuntu 22.04 or Debian 12)
 if [ -f /etc/os-release ]; then
     . /etc/os-release
-    if [ "$ID" != "ubuntu" ] || [ "${VERSION_ID}" != "22.04" ]; then
+    if [ "$ID" = "ubuntu" ] && [ "${VERSION_ID}" = "22.04" ]; then
+        echo -e "${GREEN}✓ Ubuntu 22.04${NC}"
+    elif [ "$ID" = "debian" ] && [ "${VERSION_ID}" = "12" ]; then
+        echo -e "${GREEN}✓ Debian 12${NC}"
+    else
         explain_error "$MSG_ERROR_NOT_UBUNTU"
         exit 1
     fi
@@ -124,8 +128,6 @@ else
     explain_error "$MSG_ERROR_NOT_UBUNTU"
     exit 1
 fi
-
-echo -e "${GREEN}✓ Ubuntu 22.04${NC}"
 
 # Check processor architecture (exclude i386)
 ARCH=$(uname -m)
@@ -197,11 +199,11 @@ source "$HOME/.cargo/env"
 echo ""
 echo -e "${YELLOW}$MSG_CLONING_REPO${NC}"
 cd $HOME
-if [ -d "d9_node" ]; then
-    cd d9_node && git pull
+if [ -d "d9-node" ]; then
+    cd d9-node && git pull
 else
-    git clone https://github.com/D-Nine-Chain/d9_node.git
-    cd d9_node
+    git clone https://github.com/D-Nine-Chain/d9-node.git
+    cd d9-node
 fi
 
 # If rust-toolchain.toml exists, it will override our Rust version

@@ -140,7 +140,7 @@ ARCH=$(uname -m)
 if [ "$ARCH" != "x86_64" ]; then
     explain_error "$MSG_ERROR_NOT_64BIT"
     echo -e "${YELLOW}$MSG_USE_BUILD_SCRIPT${NC}"
-    echo -e "curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9_node/main/scripts/build-node.sh | bash"
+    echo -e "curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9-node/main/scripts/build-node.sh | bash"
     exit 1
 fi
 
@@ -245,7 +245,7 @@ else
     else
         echo -e "${RED}✗ $MSG_GLIBC_INCOMPATIBLE${NC}"
         echo -e "${YELLOW}$MSG_USE_BUILD_SCRIPT${NC}"
-        echo -e "curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9_node/main/scripts/build-node.sh | bash"
+        echo -e "curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9-node/main/scripts/build-node.sh | bash"
         
         # Restore original sources.list
         sudo rm /etc/apt/sources.list.d/noble.list
@@ -259,7 +259,7 @@ fi
 echo ""
 echo -e "${YELLOW}$MSG_VERSION_CHECK${NC}"
 # Get the latest release JSON and store it
-LATEST_RELEASE=$(curl -s https://api.github.com/repos/D-Nine-Chain/d9_node/releases/latest)
+LATEST_RELEASE=$(curl -s https://api.github.com/repos/D-Nine-Chain/d9-node/releases/latest)
 
 # Extract URLs directly from the stored JSON
 DOWNLOAD_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | endswith(".tar.gz")) | .browser_download_url')
@@ -317,7 +317,7 @@ sudo mkdir -p /home/ubuntu/node-data
 sudo chown -R $USER:$USER /home/ubuntu/node-data
 
 # Download chain spec
-wget -O /tmp/new-main-spec.json https://raw.githubusercontent.com/D-Nine-Chain/d9_node/main/new-main-spec.json
+wget -O /tmp/new-main-spec.json https://raw.githubusercontent.com/D-Nine-Chain/d9-node/main/new-main-spec.json
 sudo mv /tmp/new-main-spec.json /usr/local/bin/
 
 # Set up systemd service

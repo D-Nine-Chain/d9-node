@@ -66,7 +66,7 @@ D9 Chain features several custom pallets that provide unique functionality:
 
 ### Quick Install
 
-For Ubuntu 22.04 users, use our automated installation script:
+For Ubuntu 22.04 or Debian 12 users, use our automated installation script:
 
 ```bash
 curl -sSf https://raw.githubusercontent.com/D-Nine-Chain/d9_node/main/scripts/install-d9-node.sh -o install-d9-node.sh && chmod +x install-d9-node.sh && ./install-d9-node.sh
@@ -83,7 +83,7 @@ This script will:
 
 #### Prerequisites
 
-- Ubuntu 22.04 (recommended)
+- Ubuntu 22.04 or Debian 12 (recommended)
 - At least 60GB free disk space
 - 8GB RAM minimum
 - Rust 1.75.0 exactly
