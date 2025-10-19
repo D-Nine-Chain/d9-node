@@ -1,0 +1,32 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install basic dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    clang \
+    curl \
+    libssl-dev \
+    llvm \
+    libudev-dev \
+    make \
+    protobuf-compiler \
+    jq \
+    sudo \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create ubuntu user with sudo privileges
+RUN useradd -m -s /bin/bash ubuntu && \
+    echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Switch to ubuntu user
+USER ubuntu
+WORKDIR /home/ubuntu
+
+# Copy the build script
+COPY --chown=ubuntu:ubuntu scripts/build-node.sh /home/ubuntu/build-node.sh
+RUN chmod +x /home/ubuntu/build-node.sh
+
+CMD ["/bin/bash"]
